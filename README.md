@@ -12,7 +12,7 @@ Bugs and contributions welcome (it does what I need it to do, so probably won't 
 
 ## Security Notice
 
-If you choose to save your credentials, they are current saved in PLAIN TEXT in your c:\users\userName\coquery.dat file
+If you choose to save your credentials, they are currently saved in PLAIN TEXT in your c:\users\userName\coquery.dat file
 
 I plan to add the concept of "login profiles" and encrypt the data on disk, but currently, it's plain text.
 
