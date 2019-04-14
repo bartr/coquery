@@ -4,6 +4,8 @@ Simple Windows Forms app for running CosmosDB queries (I haven't done much clien
 
 Load in Visual Studio, press F5, enter the connection info and query away. It doesn't handle paging or continuation or updates, just simple queries.
 
+It only runs one query at a time, so submit separately (it executes the selected text, so you can have multiple queries in the query window)
+
 Cross partition is on by default and max docs is set to 2000. Configurable parametes would be nice ...
 
 Bugs and contributions welcome (it does what I need it to do, so probably won't spend much time on it)
