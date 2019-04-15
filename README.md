@@ -2,7 +2,7 @@
 
 This is a developer tool, not an end user app ...
 
-Simple WinForms app for running CosmosDB queries (I haven't done much client side work in a decade - WinForms is what I know - don't h8)
+Simple WinForms app for running CosmosDB queries (I haven't done much client side work in a decade - WinForms is what I sort of remember - don't h8)
 
 Load in Visual Studio, press F5, enter the connection info and query away. It doesn't handle paging or continuation or updates, just simple queries.
 
