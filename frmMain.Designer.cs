@@ -117,7 +117,7 @@
             this.mnuFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.mnuFileOpen.Size = new System.Drawing.Size(205, 30);
             this.mnuFileOpen.Text = "&Open";
-            this.mnuFileOpen.Click += new System.EventHandler(this.mnuFileOpen_Click);
+            this.mnuFileOpen.Click += new System.EventHandler(this.MnuFileOpen_Click);
             // 
             // mnuFileSave
             // 
@@ -125,21 +125,21 @@
             this.mnuFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.mnuFileSave.Size = new System.Drawing.Size(205, 30);
             this.mnuFileSave.Text = "&Save";
-            this.mnuFileSave.Click += new System.EventHandler(this.mnuFileSave_Click);
+            this.mnuFileSave.Click += new System.EventHandler(this.MnuFileSave_Click);
             // 
             // mnuFileSaveAs
             // 
             this.mnuFileSaveAs.Name = "mnuFileSaveAs";
             this.mnuFileSaveAs.Size = new System.Drawing.Size(205, 30);
             this.mnuFileSaveAs.Text = "Save &As";
-            this.mnuFileSaveAs.Click += new System.EventHandler(this.mnuFileSaveAs_Click);
+            this.mnuFileSaveAs.Click += new System.EventHandler(this.MnuFileSaveAs_Click);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
             this.mnuFileExit.Size = new System.Drawing.Size(205, 30);
             this.mnuFileExit.Text = "E&xit";
-            this.mnuFileExit.Click += new System.EventHandler(this.mnuFileExit_Click);
+            this.mnuFileExit.Click += new System.EventHandler(this.MnuFileExit_Click);
             // 
             // mnuView
             // 
@@ -157,7 +157,7 @@
             this.mnuViewQuery.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.mnuViewQuery.Size = new System.Drawing.Size(213, 30);
             this.mnuViewQuery.Text = "&Query";
-            this.mnuViewQuery.Click += new System.EventHandler(this.mnuViewQuery_Click);
+            this.mnuViewQuery.Click += new System.EventHandler(this.MnuViewQuery_Click);
             // 
             // mnuViewResults
             // 
@@ -165,14 +165,14 @@
             this.mnuViewResults.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.mnuViewResults.Size = new System.Drawing.Size(213, 30);
             this.mnuViewResults.Text = "&Results";
-            this.mnuViewResults.Click += new System.EventHandler(this.mnuViewResults_Click);
+            this.mnuViewResults.Click += new System.EventHandler(this.MnuViewResults_Click);
             // 
             // mnuViewZoom
             // 
             this.mnuViewZoom.Name = "mnuViewZoom";
             this.mnuViewZoom.Size = new System.Drawing.Size(213, 30);
             this.mnuViewZoom.Text = "&Zoom";
-            this.mnuViewZoom.Click += new System.EventHandler(this.mnuViewZoom_Click);
+            this.mnuViewZoom.Click += new System.EventHandler(this.MnuViewZoom_Click);
             // 
             // mnuTools
             // 
@@ -189,14 +189,14 @@
             this.mnuToolsExecute.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.mnuToolsExecute.Size = new System.Drawing.Size(215, 30);
             this.mnuToolsExecute.Text = "&Execute";
-            this.mnuToolsExecute.Click += new System.EventHandler(this.mnuToolsExecute_Click);
+            this.mnuToolsExecute.Click += new System.EventHandler(this.MnuToolsExecute_Click);
             // 
             // mnuToolsLogin
             // 
             this.mnuToolsLogin.Name = "mnuToolsLogin";
             this.mnuToolsLogin.Size = new System.Drawing.Size(215, 30);
             this.mnuToolsLogin.Text = "&Login";
-            this.mnuToolsLogin.Click += new System.EventHandler(this.mnuToolsLogin_Click);
+            this.mnuToolsLogin.Click += new System.EventHandler(this.MnuToolsLogin_Click);
             // 
             // mnuHelp
             // 
@@ -212,7 +212,7 @@
             this.mnuHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.mnuHelpAbout.Size = new System.Drawing.Size(177, 30);
             this.mnuHelpAbout.Text = "&About";
-            this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
+            this.mnuHelpAbout.Click += new System.EventHandler(this.MnuHelpAbout_Click);
             // 
             // status
             // 

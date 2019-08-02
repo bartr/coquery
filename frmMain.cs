@@ -1,27 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using System.Diagnostics;
-using Microsoft.Azure.Documents.Linq;
-using System.Linq;
 
 namespace coquery
 {
     public partial class frmMain : Form
     {
+        private readonly CosmosDB cosmos = new CosmosDB();
+
         public frmMain()
         {
             // constructor
@@ -42,7 +28,7 @@ namespace coquery
             }
 
             // Open the CosmosDB client connection
-            OpenCosmosDBConnection();
+            cosmos.OpenCosmosDBConnection();
 
             // save this for later
             queryHeight = txtQuery.Height;
@@ -51,7 +37,7 @@ namespace coquery
             txtQuery.Text = "select * from m";
             txtQuery.Focus();
             txtQuery.Select(0, 0);
-            mnuViewZoom_Click(null, null);
+            MnuViewZoom_Click(null, null);
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -82,10 +68,10 @@ namespace coquery
                         lines[0] = string.Format("https://{0}.documents.azure.com/", lines[0].Trim());
                     }
 
-                    connString = lines[0].Trim();
-                    key = lines[1].Trim();
-                    database = lines[2].Trim();
-                    collection = lines[3].Trim();
+                    cosmos.ConnectionString = lines[0].Trim();
+                    cosmos.Key = lines[1].Trim();
+                    cosmos.Database = lines[2].Trim();
+                    cosmos.Collection = lines[3].Trim();
 
                     if (autoLogin)
                     {
@@ -98,10 +84,10 @@ namespace coquery
             var login = new frmLogin();
 
             // set the values if already logged in
-            login.txtServer.Text = connString.Replace("https://", string.Empty).Replace(".documents.azure.com/", string.Empty);
-            login.txtKey.Text = key;
-            login.txtDatabase.Text = database;
-            login.txtCollection.Text = collection;
+            login.txtServer.Text = cosmos.ConnectionString.Replace("https://", string.Empty).Replace(".documents.azure.com/", string.Empty);
+            login.txtKey.Text = cosmos.Key;
+            login.txtDatabase.Text = cosmos.Database;
+            login.txtCollection.Text = cosmos.Collection;
 
             // show the login form
             DialogResult res = login.ShowDialog(this);
@@ -112,10 +98,10 @@ namespace coquery
             }
 
             // save the login info
-            connString = login.txtServer.Text.Trim();
-            key = login.txtKey.Text.Trim();
-            database = login.txtDatabase.Text.Trim();
-            collection = login.txtCollection.Text.Trim();
+            cosmos.ConnectionString = login.txtServer.Text.Trim();
+            cosmos.Key = login.txtKey.Text.Trim();
+            cosmos.Database = login.txtDatabase.Text.Trim();
+            cosmos.Collection = login.txtCollection.Text.Trim();
 
             return true;
         }
