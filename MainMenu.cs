@@ -87,6 +87,7 @@ namespace coquery
                 Unzoom();
                 return;
             }
+
             if (ActiveControl != null)
             {
                 if (ActiveControl.Name == "txtQuery")
@@ -116,6 +117,8 @@ namespace coquery
         {
             // execute the query
 
+            this.Cursor = Cursors.WaitCursor;
+
             List<dynamic> results = new List<dynamic>();
 
             if (ActiveControl == txtQuery)
@@ -126,42 +129,42 @@ namespace coquery
 
                 if (! string.IsNullOrEmpty(sql))
                 {
-                    this.Cursor = Cursors.WaitCursor;
-
-                    // get the query from selected text or entire text
-                    sql = txtQuery.Text.Trim();
-
+                    // get the query from selected text
                     if (txtQuery.SelectionLength > 0)
                     {
                         sql = txtQuery.SelectedText.Trim();
                     }
 
-                    txtResults.Text = string.Empty;
-
                     if (!string.IsNullOrEmpty(sql))
                     {
+                        txtResults.Text = string.Empty;
+                        lblStatus.Text = "Executing query ...";
+
                         try
                         {
                             results = cosmos.ExecQuery(sql).GetAwaiter().GetResult();
 
+                            // elapsed ms will be the first item in the list and RUs will be the second
                             lblStatus.Text = string.Format("{0} documents retrieved in {1}ms - {2} request units", results.Count - 2, results[0], results[1]);
 
+                            // remove elaspsed time and RUs
                             results.RemoveAt(0);
                             results.RemoveAt(0);
 
+                            // convert the List to json
                             txtResults.Text += JsonConvert.SerializeObject(results, Formatting.Indented);
-
-                            // makes it easier to use
-                            txtResults.Select(0, 0);
-                            txtQuery.Focus();
                         }
                         catch (Exception ex)
                         {
                             lblStatus.Text = ex.GetType().ToString();
                             txtResults.Text = ex.ToString();
                         }
+                    }
                 }
-            }
+
+                // makes it easier to use
+                txtResults.Select(0, 0);
+                txtQuery.Focus();
 
                 this.Cursor = Cursors.Default;
             }
@@ -170,6 +173,7 @@ namespace coquery
         private void MnuFileExit_Click(object sender, EventArgs e)
         {
             // see ya
+
             Application.Exit();
         }
 
@@ -177,21 +181,21 @@ namespace coquery
         {
             // open a query file
 
-            MessageBox.Show("Sorry, File Open not implemented yet");
+            MessageBox.Show("Sorry, File Open not implemented yet", "Contributions Welcomed!", MessageBoxButtons.OK);
         }
 
         private void MnuFileSave_Click(object sender, EventArgs e)
         {
             // save the query or results based on focus
 
-            MessageBox.Show("Sorry, File Save not implemented yet");
+            MessageBox.Show("Sorry, File Save not implemented yet", "Contributions Welcomed!", MessageBoxButtons.OK);
         }
 
         private void MnuFileSaveAs_Click(object sender, EventArgs e)
         {
             // save the query or results based on focus
 
-            MessageBox.Show("Sorry, File Save As not implemented yet");
+            MessageBox.Show("Sorry, File Save As not implemented yet", "Contributions Welcomed!", MessageBoxButtons.OK);
         }
 
         private void MnuToolsLogin_Click(object sender, EventArgs e)

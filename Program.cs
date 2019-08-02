@@ -10,6 +10,7 @@ namespace coquery
     {
         /// <summary>
         /// The main entry point for the application.
+        /// Standard template code
         /// </summary>
         [STAThread]
         static void Main()

@@ -63,16 +63,6 @@ namespace coquery
             txtAbout.Text += "* File Save As\r\n";
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                Close();
-            }
-
-            return true;
-        }
-
         private void FrmAbout_KeyPress(object sender, KeyPressEventArgs e)
         {
             // escape exits

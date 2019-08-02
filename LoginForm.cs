@@ -14,6 +14,7 @@ namespace coquery
     {
         public frmLogin()
         {
+            // standard constructor
             InitializeComponent();
         }
 
